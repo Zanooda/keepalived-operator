@@ -142,6 +142,7 @@
 
   {{ $root:=. }} 
   {{ $verbatim_key:="keepalived-operator.redhat-cop.io/verbatimconfig"}}  
+  {{ $auth_key:="keepalived-operator.redhat-cop.io/authconfig"}}
   {{ $spread_key:="keepalived-operator.redhat-cop.io/spreadvips" }} 
   {{ range $service := .Services }}
       {{ $namespacedName:=printf "%s/%s" $service.ObjectMeta.Namespace $service.ObjectMeta.Name }}
@@ -171,6 +172,13 @@
           {{ range $key , $value := (parseJson (index $service.GetAnnotations $verbatim_key)) }}
           {{ $key }} {{ $value }}
           {{ end }}
+
+          authentication {
+            {{ range $key , $value := (parseJson (index $service.GetAnnotations $auth_key)) }}
+            {{ $key }} {{ $value }}
+            {{ end }}
+          }
+
       }
       {{- end }}
       {{- else }}
@@ -194,6 +202,12 @@
           {{ range $key , $value := (parseJson (index $service.GetAnnotations $verbatim_key)) }}
           {{ $key }} {{ $value }}
           {{ end }}
+
+          authentication {
+            {{ range $key , $value := (parseJson (index $service.GetAnnotations $auth_key)) }}
+            {{ $key }} {{ $value }}
+            {{ end }}
+          }
       }
       {{- end }}
   {{ end }}

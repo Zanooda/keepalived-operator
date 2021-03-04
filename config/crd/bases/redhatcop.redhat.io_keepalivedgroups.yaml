@@ -36,6 +36,11 @@ spec:
           spec:
             description: KeepalivedGroupSpec defines the desired state of KeepalivedGroup
             properties:
+              authConfig:
+                additionalProperties:
+                  type: string
+                type: object
+                x-kubernetes-map-type: granular
               blacklistRouterIDs:
                 description: // +kubebuilder:validation:UniqueItems=true
                 items:

@@ -56,6 +56,7 @@ const (
 	imageNameEnv                            = "KEEPALIVED_OPERATOR_IMAGE_NAME"
 	keepalivedGroupAnnotation               = "keepalived-operator.redhat-cop.io/keepalivedgroup"
 	keepalivedGroupVerbatimConfigAnnotation = "keepalived-operator.redhat-cop.io/verbatimconfig"
+	keepalivedGroupAuthConfigAnnotation     = "keepalived-operator.redhat-cop.io/authconfig"
 	keepalivedSpreadVIPsAnnotation          = "keepalived-operator.redhat-cop.io/spreadvips"
 	keepalivedGroupLabel                    = "keepalivedGroup"
 	podMonitorAPIVersion                    = "monitoring.coreos.com/v1"

@@ -45,6 +45,10 @@ type KeepalivedGroupSpec struct {
 	VerbatimConfig map[string]string `json:"verbatimConfig,omitempty"`
 
 	// +kubebuilder:validation:Optional
+	// +mapType=granular
+	AuthConfig map[string]string `json:"authConfig,omitempty"`
+
+	// +kubebuilder:validation:Optional
 	// // +kubebuilder:validation:UniqueItems=true
 	// +listType=set
 	BlacklistRouterIDs []int `json:"blacklistRouterIDs,omitempty"`

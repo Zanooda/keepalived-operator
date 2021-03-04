@@ -101,6 +101,13 @@ func (in *KeepalivedGroupSpec) DeepCopyInto(out *KeepalivedGroupSpec) {
 			(*out)[key] = val
 		}
 	}
+	if in.AuthConfig != nil {
+		in, out := &in.AuthConfig, &out.AuthConfig
+		*out = make(map[string]string, len(*in))
+		for key, val := range *in {
+			(*out)[key] = val
+		}
+	}
 	if in.BlacklistRouterIDs != nil {
 		in, out := &in.BlacklistRouterIDs, &out.BlacklistRouterIDs
 		*out = make([]int, len(*in))
